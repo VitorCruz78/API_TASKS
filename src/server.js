@@ -1,13 +1,10 @@
 const express = require('express')
-const router = express.Router()
-
-const TasksController = require('./controllers/tasksController')
+const TasksRouter = require('./routes/TasksRoutes')
 
 const app = express()
-app.use(router)
+app.use(express.json())
+app.use(TasksRouter)
 
-router
-    .route('/api/tasks')
-    .get(TasksController.getAll)
-
-app.listen(3000)
+app.listen(3000, () => {
+    console.log("Server is runnig locally...")
+})
