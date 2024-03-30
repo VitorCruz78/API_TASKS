@@ -1,7 +1,7 @@
 const express = require('express')
+const app = express()
 const TasksRouter = require('./routes/TasksRoutes')
 
-const app = express()
 app.use(express.json())
 app.use(TasksRouter)
 
