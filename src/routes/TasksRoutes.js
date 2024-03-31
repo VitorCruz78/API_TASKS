@@ -5,10 +5,18 @@ const router = express.Router()
 
 router
     .route('/api/tasks')
-    .get(TasksController.getAll)
+    .post(TasksController.create)
 
 router
     .route('/api/tasks')
-    .post(TasksController.create)
+    .get(TasksController.read)
+
+router
+    .route('/api/tasks/:id')
+    .put(TasksController.update)
+
+router
+    .route('/api/tasks/:id')
+    .delete(TasksController.delete)
 
 module.exports = router;
