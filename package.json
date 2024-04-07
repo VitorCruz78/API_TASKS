@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "services:up": "docker-compose -f src/infra/docker-compose.yml up -d",
+    "services:stop": "docker-compose -f src/infra/docker-compose.yml stop",
+    "dev": "npm run services:up && nodemon src/server.js && npm run services:stop"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv": "^6.3.8",
+    "csv-parser": "^3.0.0",
     "express": "^4.19.2",
     "joi": "^17.12.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.5"
   }
 }
